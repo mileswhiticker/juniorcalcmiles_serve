@@ -1,0 +1,6 @@
+@juniorcalcmiles_serve_HostAddress = http://localhost:5086
+
+GET {{juniorcalcmiles_serve_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
