@@ -2,6 +2,13 @@ namespace juniorcalcmiles_serve;
 
 public class WeatherForecast
 {
+    private static int forecastIndex = 0;
+    public WeatherForecast() {
+        ForecastIndex = forecastIndex++;
+    }
+
+    public int ForecastIndex { get; }
+
     public DateOnly Date { get; set; }
 
     public int TemperatureC { get; set; }
