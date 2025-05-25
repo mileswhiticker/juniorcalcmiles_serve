@@ -17,9 +17,12 @@ public class CalculatorController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] OperationRequest request)
     {
-        //Console.WriteLine("request: " + request.request_id);
-        IActionResult response = Ok(new OperationResponse(request));
-        return response;
+        Console.WriteLine("request at api: " + System.Text.Json.JsonSerializer.Serialize(request));
+        OperationResponse response = new OperationResponse(request);
+        //Console.WriteLine("request: " + request);
+        Console.WriteLine("response: " + System.Text.Json.JsonSerializer.Serialize(response));
+        IActionResult result = Ok(response);
+        return result;
     }
     
     [HttpPost("debug")]
@@ -27,7 +30,7 @@ public class CalculatorController : ControllerBase
     {
         using var reader = new StreamReader(Request.Body);
         var rawBody = await reader.ReadToEndAsync();
-        Console.WriteLine("RAW BODY: " + rawBody);
+        Console.WriteLine("debug request: " + rawBody);
 
         return Ok(new { received = rawBody });
     }
