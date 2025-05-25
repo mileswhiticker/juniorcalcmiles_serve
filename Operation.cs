@@ -158,6 +158,10 @@ namespace juniorcalcmiles_serve
         public int responseId { get; set; }
         public DateTime responseTime { get; set; }
 
+        public OperationResponse()
+        {
+            //
+        }
         public OperationResponse(OperationRequest request)
         {
             this.requestId = request.request_id;

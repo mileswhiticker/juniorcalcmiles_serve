@@ -7,6 +7,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddControllers().AddXmlSerializerFormatters();  // Enables XML input/output
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
